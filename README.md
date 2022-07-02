@@ -30,7 +30,8 @@ function shuffleArray(array) {
     }
 }
 ```
-
+- - - -
+> Improvements could be found on the improvements branch
 
 ## Available Scripts
 
