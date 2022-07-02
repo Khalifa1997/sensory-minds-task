@@ -22,7 +22,7 @@
 .selected {
   text-decoration: line-through;
   background-color: #00ff1a;
-  animation: fadeIn 1s forwards;
+  animation: fadeIn 0.75s forwards;
 }
 
 .card-middle {
