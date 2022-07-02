@@ -7,7 +7,17 @@ import Confetti from "react-confetti";
 import { motion } from "framer-motion";
 function App() {
   //Setting the States
-  const [cards, setCards] = useState([
+  function shuffle(arr) {
+    var j, x, index;
+    for (index = arr.length - 1; index > 0; index--) {
+      j = Math.floor(Math.random() * (index + 1));
+      x = arr[index];
+      arr[index] = arr[j];
+      arr[j] = x;
+    }
+    return arr;
+  }
+  const items = shuffle([
     { text: "Kelly’s eye", selected: false },
     { text: "One little duck", selected: false },
     { text: "Cup of tea", selected: false },
@@ -34,6 +44,8 @@ function App() {
     { text: "Two dozen", selected: false },
     { text: "Up to tricks", selected: false },
   ]);
+  console.log(items);
+  const [cards, setCards] = useState(items);
   const [bingos, setBingos] = useState(0);
   //Repeat Game function, sets Cards aswell as returning win to false
   const repeatGame = () => {
