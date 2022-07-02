@@ -23,20 +23,22 @@
 }
 
 .won {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-color: white;
   font-size: 50px;
   border: white 2px;
   border-radius: 4px;
-  margin: 200px;
+  margin-top: 70px;
 }
 
 .wonButton {
   height: 30px;
-  margin-left: 90px;
+
   margin-bottom: 20px;
 }
 
 .wonText {
-  margin-right: 20px;
-  margin-left: 20px;
 }

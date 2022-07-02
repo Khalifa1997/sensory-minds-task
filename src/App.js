@@ -34,7 +34,7 @@ function App() {
     { text: "Two dozen", selected: false },
     { text: "Up to tricks", selected: false },
   ]);
-  const [won, setWon] = useState(false);
+  const [bingos, setBingos] = useState(0);
   //Repeat Game function, sets Cards aswell as returning win to false
   const repeatGame = () => {
     setCards([
@@ -64,7 +64,7 @@ function App() {
       { text: "Two dozen", selected: false },
       { text: "Up to tricks", selected: false },
     ]);
-    setWon(false);
+    setBingos(0);
   };
   //SelectedArr produces a binary Array where the elements would be something like [1,0,0].. with 1's being elements that are selected
   //Using Memoization to avoid unnecessary computation of this algorithm
@@ -85,7 +85,7 @@ function App() {
       selectedArr[18] === 1 &&
       selectedArr[24] === 1
     )
-      setWon(true);
+      setBingos((prev) => prev + 1);
 
     if (
       selectedArr[4] === 1 &&
@@ -93,7 +93,7 @@ function App() {
       selectedArr[16] === 1 &&
       selectedArr[20] === 1
     )
-      setWon(true);
+      setBingos((prev) => prev + 1);
 
     let horizontalSum = [];
     let verticalSum = [];
@@ -103,7 +103,7 @@ function App() {
       const newArr = selectedArr.slice(index, index + 5);
 
       const rowSum = newArr.reduce((sum, acc) => sum + acc, 0);
-      if (rowSum === 5) setWon(true);
+      if (rowSum === 5) setBingos((prev) => prev + 1);
 
       horizontalSum.push(rowSum);
     }
@@ -114,17 +114,18 @@ function App() {
       for (let j = 1; j < 5; j++) {
         currSum += selectedArr[i + j * 5];
       }
-      if (currSum === 5) setWon(true);
+      if (currSum === 5) setBingos((prev) => prev + 1);
       verticalSum.push(currSum);
     }
   }, [selectedArr]);
   return (
     <div className="App">
-      {won ? (
+      {bingos > 0 ? (
         <div>
           <Confetti />
           <div className="won">
-            <div className="wonText">You Won!</div>
+            <h1 className="wonText">You Won!</h1>
+            <p>You got {bingos} Bingos!</p>
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
