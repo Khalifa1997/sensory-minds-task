@@ -1,0 +1,76 @@
+.card {
+  position: relative;
+  border: 1px solid black;
+  text-align: center;
+
+  font-family: "Lobster";
+
+  cursor: pointer;
+}
+
+.number {
+  position: absolute;
+  top: -20px;
+  right: 0px;
+}
+
+.text {
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.selected {
+  text-decoration: line-through;
+  background-color: #00ff1a;
+  animation: fadeIn 1s forwards;
+}
+
+.card-middle {
+  display: inline-block;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  border-style: solid;
+  font-family: "Lobster";
+
+  position: relative;
+  border: 3px solid black;
+  text-align: center;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0%;
+  }
+  25% {
+    opacity: 25%;
+  }
+  50% {
+    opacity: 50%;
+  }
+  75% {
+    opacity: 75%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes toggleColor {
+  0% {
+    background: #bbfdc2;
+  }
+  25% {
+    background: #4ddc8d;
+  }
+  50% {
+    background: #54fa67;
+  }
+  75% {
+    background: #3ef653;
+  }
+  100% {
+    background: #00ff1a;
+  }
+}
