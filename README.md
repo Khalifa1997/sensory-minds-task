@@ -20,6 +20,17 @@
 
 * A small edit would be showing *You won one Bingo* instead of *You won one Bingo**s***
 
+* Using a random array each time, so that if multiple users are playing then you get a different board everytime... this function could be used for it *my eyes totally skipped this part on the task..*
+
+```
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+```
+
 
 ## Available Scripts
 
