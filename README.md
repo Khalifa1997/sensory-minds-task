@@ -10,12 +10,13 @@
 
 ## Future Improvements
 
-`framer-motion` is a very fun library to use, however it does take time and alot of testing for things to work as you want them too, I wanted to have a modal element that would appear in case of winning but time had ran out.. you can see parts of it being implemented in the **Modal.js** and **Backdrop.js** file
+* `framer-motion` is a very fun library to use, however it does take time and alot of testing for things to work as you want them too, I wanted to have a modal element that would appear in case of winning but time had ran out.. you can see parts of it being implemented in the **Modal.js** and **Backdrop.js** file
 
-Furthermore, I wanted to improve the performance of the for-loops I tried my best using `useMemo` and `useEffect` Hooks, however the for loops themselves could be implemented in a far better way in my opinion.
+* Furthermore, I wanted to improve the performance of the for-loops I tried my best using `useMemo` and `useEffect` Hooks, however the for loops themselves could be implemented in a far better way in my opinion.
 
-`KeyFrames` work good for basic CSS animation, but it could be vastly improved with `frame-motion` in the future
+* `KeyFrames` work good for basic CSS animation, but it could be vastly improved with `frame-motion` in the future
 
+* A small edit would be showing *You won one Bingo* instead of *You won one Bingo**s***
 ## Available Scripts
 
 ### `npm start`
