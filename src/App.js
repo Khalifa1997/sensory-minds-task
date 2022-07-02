@@ -137,7 +137,9 @@ function App() {
           <Confetti />
           <div className="won">
             <h1 className="wonText">You Won!</h1>
-            <p>You got {bingos} Bingos!</p>
+            <p>
+              You got {bingos} Bingo{bingos > 1 && `s`}!
+            </p>
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
