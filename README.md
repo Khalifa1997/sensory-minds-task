@@ -1,5 +1,7 @@
 # Sensory Minds task
 
+## Link to the repo could be found [here](https://sparkly-pixie-c5720f.netlify.app/)
+
 
 ## Used Packages
 `React-confetti` for the confetti effect if game was won
@@ -17,6 +19,8 @@
 * `KeyFrames` work good for basic CSS animation, but it could be vastly improved with `frame-motion` in the future
 
 * A small edit would be showing *You won one Bingo* instead of *You won one Bingo**s***
+
+
 ## Available Scripts
 
 ### `npm start`
