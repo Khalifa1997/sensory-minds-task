@@ -14,7 +14,7 @@ const Card = ({ children, number, setCards, cards }) => {
       });
       setCards(newCards);
     },
-    [cards]
+    [cards, setCards]
   );
   return (
     <div
