@@ -1,22 +1,14 @@
 import "./App.css";
 import { useState, useMemo, useEffect } from "react";
 import Card from "./components/Card/Card";
-
+import { shuffle } from "./utils/shuffle";
 import Confetti from "react-confetti";
 
 import { motion } from "framer-motion";
 function App() {
   //Setting the States
-  function shuffle(arr) {
-    var j, x, index;
-    for (index = arr.length - 1; index > 0; index--) {
-      j = Math.floor(Math.random() * (index + 1));
-      x = arr[index];
-      arr[index] = arr[j];
-      arr[j] = x;
-    }
-    return arr;
-  }
+  //Shuffle Function
+
   const items = shuffle([
     { text: "Kelly’s eye", selected: false },
     { text: "One little duck", selected: false },
@@ -44,38 +36,12 @@ function App() {
     { text: "Two dozen", selected: false },
     { text: "Up to tricks", selected: false },
   ]);
-  console.log(items);
+
   const [cards, setCards] = useState(items);
   const [bingos, setBingos] = useState(0);
   //Repeat Game function, sets Cards aswell as returning win to false
   const repeatGame = () => {
-    setCards([
-      { text: "Kelly’s eye", selected: false },
-      { text: "One little duck", selected: false },
-      { text: "Cup of tea", selected: false },
-      { text: "Knock at the door", selected: false },
-      { text: "Man alive", selected: false },
-      { text: "Tom Mix/Half a dozen", selected: false },
-      { text: "Lucky seven", selected: false },
-      { text: "Garden gate", selected: false },
-      { text: "Doctor’s orders", selected: false },
-      { text: "Stairway to heaven", selected: false },
-      { text: "Legs eleven", selected: false },
-      { text: "One dozen", selected: false },
-      { text: "Unlucky for some", selected: false },
-      { text: "Valentine’s Day", selected: false },
-      { text: "Young and keen", selected: false },
-      { text: "Sweet 16 and never been kissed", selected: false },
-      { text: "Dancing queen", selected: false },
-      { text: "Coming of age", selected: false },
-      { text: "Goodbye teens", selected: false },
-      { text: "One score", selected: false },
-      { text: "Royal salute/Key of the door", selected: false },
-      { text: "Two little ducks", selected: false },
-      { text: "Thee and me", selected: false },
-      { text: "Two dozen", selected: false },
-      { text: "Up to tricks", selected: false },
-    ]);
+    setCards(shuffle(items));
     setBingos(0);
   };
   //SelectedArr produces a binary Array where the elements would be something like [1,0,0].. with 1's being elements that are selected
