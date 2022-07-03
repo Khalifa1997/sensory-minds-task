@@ -1,3 +1,4 @@
+// Shuffle Function
 export function shuffle(arr) {
   var j, x, index;
   for (index = arr.length - 1; index > 0; index--) {

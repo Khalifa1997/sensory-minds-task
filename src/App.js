@@ -7,7 +7,6 @@ import Confetti from "react-confetti";
 import { motion } from "framer-motion";
 function App() {
   //Setting the States
-  //Shuffle Function
 
   const items = shuffle([
     { text: "Kelly’s eye", selected: false },
@@ -73,11 +72,11 @@ function App() {
     )
       setBingos((prev) => prev + 1);
 
-    //Horizontal SUm
+    //Horizontal Sum
     for (let index = 0; index < selectedArr.length; index += 5) {
-      //Horizontal
       const newArr = selectedArr.slice(index, index + 5);
 
+      //Horizontal
       const rowSum = newArr.reduce((sum, acc) => sum + acc, 0);
       if (rowSum === 5) setBingos((prev) => prev + 1);
     }
