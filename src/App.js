@@ -107,8 +107,6 @@ function App() {
     )
       setBingos((prev) => prev + 1);
 
-    let horizontalSum = [];
-    let verticalSum = [];
     //Horizontal SUm
     for (let index = 0; index < selectedArr.length; index += 5) {
       //Horizontal
@@ -116,8 +114,6 @@ function App() {
 
       const rowSum = newArr.reduce((sum, acc) => sum + acc, 0);
       if (rowSum === 5) setBingos((prev) => prev + 1);
-
-      horizontalSum.push(rowSum);
     }
     //Vertical Sum --Needs improvement
     for (let i = 0; i < 5; i++) {
@@ -127,7 +123,6 @@ function App() {
         currSum += selectedArr[i + j * 5];
       }
       if (currSum === 5) setBingos((prev) => prev + 1);
-      verticalSum.push(currSum);
     }
   }, [selectedArr]);
   return (
