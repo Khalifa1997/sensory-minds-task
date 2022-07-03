@@ -118,11 +118,11 @@ function App() {
     //Vertical Sum --Needs improvement
     for (let i = 0; i < 5; i++) {
       //Vertical
-      let currSum = selectedArr[i];
+      let colSum = selectedArr[i];
       for (let j = 1; j < 5; j++) {
-        currSum += selectedArr[i + j * 5];
+        colSum += selectedArr[i + j * 5];
       }
-      if (currSum === 5) setBingos((prev) => prev + 1);
+      if (colSum === 5) setBingos((prev) => prev + 1);
     }
   }, [selectedArr]);
   return (
