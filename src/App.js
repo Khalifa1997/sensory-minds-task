@@ -1,13 +1,14 @@
 import "./App.css";
 import { useState, useMemo, useEffect } from "react";
 import Card from "./components/Card/Card";
-
+import { shuffle } from "./utils/shuffle";
 import Confetti from "react-confetti";
 
 import { motion } from "framer-motion";
 function App() {
   //Setting the States
-  const [cards, setCards] = useState([
+
+  const items = shuffle([
     { text: "Kelly’s eye", selected: false },
     { text: "One little duck", selected: false },
     { text: "Cup of tea", selected: false },
@@ -34,36 +35,12 @@ function App() {
     { text: "Two dozen", selected: false },
     { text: "Up to tricks", selected: false },
   ]);
+
+  const [cards, setCards] = useState(items);
   const [bingos, setBingos] = useState(0);
   //Repeat Game function, sets Cards aswell as returning win to false
   const repeatGame = () => {
-    setCards([
-      { text: "Kelly’s eye", selected: false },
-      { text: "One little duck", selected: false },
-      { text: "Cup of tea", selected: false },
-      { text: "Knock at the door", selected: false },
-      { text: "Man alive", selected: false },
-      { text: "Tom Mix/Half a dozen", selected: false },
-      { text: "Lucky seven", selected: false },
-      { text: "Garden gate", selected: false },
-      { text: "Doctor’s orders", selected: false },
-      { text: "Stairway to heaven", selected: false },
-      { text: "Legs eleven", selected: false },
-      { text: "One dozen", selected: false },
-      { text: "Unlucky for some", selected: false },
-      { text: "Valentine’s Day", selected: false },
-      { text: "Young and keen", selected: false },
-      { text: "Sweet 16 and never been kissed", selected: false },
-      { text: "Dancing queen", selected: false },
-      { text: "Coming of age", selected: false },
-      { text: "Goodbye teens", selected: false },
-      { text: "One score", selected: false },
-      { text: "Royal salute/Key of the door", selected: false },
-      { text: "Two little ducks", selected: false },
-      { text: "Thee and me", selected: false },
-      { text: "Two dozen", selected: false },
-      { text: "Up to tricks", selected: false },
-    ]);
+    setCards(shuffle(items));
     setBingos(0);
   };
   //SelectedArr produces a binary Array where the elements would be something like [1,0,0].. with 1's being elements that are selected
@@ -95,27 +72,22 @@ function App() {
     )
       setBingos((prev) => prev + 1);
 
-    let horizontalSum = [];
-    let verticalSum = [];
-    //Horizontal SUm
+    //Horizontal Sum
     for (let index = 0; index < selectedArr.length; index += 5) {
-      //Horizontal
       const newArr = selectedArr.slice(index, index + 5);
 
+      //Horizontal
       const rowSum = newArr.reduce((sum, acc) => sum + acc, 0);
       if (rowSum === 5) setBingos((prev) => prev + 1);
-
-      horizontalSum.push(rowSum);
     }
     //Vertical Sum --Needs improvement
     for (let i = 0; i < 5; i++) {
       //Vertical
-      let currSum = selectedArr[i];
+      let colSum = selectedArr[i];
       for (let j = 1; j < 5; j++) {
-        currSum += selectedArr[i + j * 5];
+        colSum += selectedArr[i + j * 5];
       }
-      if (currSum === 5) setBingos((prev) => prev + 1);
-      verticalSum.push(currSum);
+      if (colSum === 5) setBingos((prev) => prev + 1);
     }
   }, [selectedArr]);
   return (
@@ -125,7 +97,9 @@ function App() {
           <Confetti />
           <div className="won">
             <h1 className="wonText">You Won!</h1>
-            <p>You got {bingos} Bingos!</p>
+            <p>
+              You got {bingos} Bingo{bingos > 1 && `s`}!
+            </p>
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}

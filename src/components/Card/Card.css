@@ -16,7 +16,7 @@
 
 .text {
   margin-top: 20px;
-  font-size: 20px;
+  font-size: 0.75rem;
 }
 
 .selected {
@@ -27,8 +27,8 @@
 
 .card-middle {
   display: inline-block;
-  width: 96px;
-  height: 96px;
+  width: 1fr;
+  height: 1fr;
   border-radius: 50%;
   border-style: solid;
   font-family: "Lobster";
